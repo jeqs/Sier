@@ -1,0 +1,25 @@
+<mat-card>
+  <mat-card-content>
+    <h4>Producto</h4>
+    <form (ngSubmit)="crearProducto()" autocomplete="off" novalidate [formGroup]="formProducto">
+      <mat-label>Nombre: </mat-label>
+      <mat-form-field appearance="legacy">
+        <input matInput formControlName="nombre">
+      </mat-form-field>
+      
+      <mat-label>Descripcion: </mat-label>
+      <mat-form-field appearance="legacy">
+        <input matInput formControlName="descripcion">
+      </mat-form-field>
+
+      <mat-label>Precio: </mat-label>
+      <mat-form-field appearance="legacy">
+        <input matInput formControlName="precio" type="number">
+      </mat-form-field>
+
+      <button mat-button color="primary" *ngIf="this.producto.id !=0" [routerLink]="['/detalleproducto', this.producto.id]">Agregar Detalle</button>
+      <button mat-button class="button" type="submit">Guardar</button>
+      <button mat-button class="button" type="button" (click)="cancelar()">Cancelar</button>
+    </form>
+  </mat-card-content>
+</mat-card>

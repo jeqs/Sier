@@ -1,0 +1,33 @@
+<mat-card>
+    <mat-card-content>
+        <button mat-button color="primary" [routerLink]="['/producto', 0]">Agregar Producto</button>
+        <table mat-table [dataSource]="productos" class="mat-elevation-z8">
+            <ng-container matColumnDef="id">
+                <th mat-header-cell *matHeaderCellDef>Id</th>
+                <td mat-cell *matCellDef="let element">{{element.id}}</td>
+            </ng-container>
+            <ng-container matColumnDef="nombre">
+                <th mat-header-cell *matHeaderCellDef>Nombre</th>
+                <td mat-cell *matCellDef="let element">{{element.nombre}}</td>
+            </ng-container>
+            <ng-container matColumnDef="descripcion">
+                <th mat-header-cell *matHeaderCellDef>Descripción</th>
+                <td mat-cell *matCellDef="let element">{{element.descripcion}}</td>
+            </ng-container>
+            <ng-container matColumnDef="precio">
+                <th mat-header-cell *matHeaderCellDef>Precio</th>
+                <td mat-cell *matCellDef="let element">{{element.precio}}</td>
+            </ng-container>
+            <ng-container matColumnDef="actions">
+                <th mat-header-cell *matHeaderCellDef>Acción</th>
+                <td mat-cell *matCellDef="let element" class="action-link">
+                    <button mat-button color="primary" [routerLink]="['/producto', element.id]">Editar</button> | 
+                    <button mat-button color="primary" [routerLink]="['/detalleproducto', element.id]">Detalle</button>
+                </td>
+            </ng-container>
+
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+    </mat-card-content>
+</mat-card>

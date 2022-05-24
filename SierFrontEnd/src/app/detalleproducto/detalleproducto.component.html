@@ -1,0 +1,20 @@
+<mat-card>
+  <mat-card-content>
+    <h4>Detalle Producto</h4>
+    <form (ngSubmit)="crearDetalleProducto()" autocomplete="off" novalidate [formGroup]="formDetalleProducto">
+      <mat-label>Cantidad: </mat-label>
+      <mat-form-field appearance="legacy">
+        <input matInput formControlName="cantidad" type="number" (blur)="calcularIVA()">
+      </mat-form-field>
+      
+      <br><mat-label>Precio: {{precio | currency}}</mat-label>
+      <br><mat-label>Valor IVA: {{valorIVA | currency}}</mat-label>
+      <br><mat-label>Valor Total: {{valorTotal | currency}}</mat-label>
+      <br>
+      <br>
+      
+      <button mat-button class="button" type="submit">Guardar</button>
+      <button mat-button class="button" type="button" (click)="cancelar()">Cancelar</button>
+    </form>
+  </mat-card-content>
+</mat-card>

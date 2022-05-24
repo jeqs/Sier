@@ -1,0 +1,14 @@
+table {
+  width: 100%;
+}
+
+mat-card {
+  width: 450px;
+  left: 45%;
+  margin-top: 10px;
+}
+
+th {
+  text-align: center;
+  font-weight: bold;
+}
